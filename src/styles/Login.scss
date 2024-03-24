@@ -1,0 +1,34 @@
+.loginPage {
+    height: 100%;
+    align-items: center;
+}
+
+.imageBox {
+    background-image: url("../../public/homePageImage.jpg");
+    background-size: cover;
+    height: 100%;
+}
+
+.fieldsBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 70vh;
+}
+
+.fieldsBox h1{
+    font-size: 30px;
+}
+
+.fieldsBox button{
+    width: 10vw;
+}
+
+.fieldsFlex {
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30vw;
+    height: 16vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
