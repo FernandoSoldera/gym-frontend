@@ -1,0 +1,43 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #000000db;
+    color: white;
+    padding: 20px;
+    align-items: center;
+}
+
+.linkPages {
+    display: flex;
+    width: 45vw;
+    justify-content: space-between;
+}
+
+h2 {
+    cursor: pointer;
+}
+
+h2{
+    border:none;
+    position: relative;
+}
+
+h2::after{
+content: '';
+    position: absolute;
+    width: 0px;
+    height: 2px;
+    left: 50%;
+    bottom: -6px;
+    background-color: white;
+    transition: all ease-in-out .3s;
+}
+
+h2:hover::after{
+    width: 100%;
+    left: 0;
+}
+
+.divAvatar {
+    cursor: pointer;
+}

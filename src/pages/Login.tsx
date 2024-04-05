@@ -4,6 +4,7 @@ import '../styles/Login.scss'
 import IUserLogin from '../types/IUserLogin'
 import UserService from '../services/UserService'
 import { useNavigate } from 'react-router-dom'
+import Cookies from 'js-cookie'
 
 export default function Login() {
   const navigate = useNavigate()
@@ -21,7 +22,8 @@ export default function Login() {
       password,
     }
     const response = await UserService.login(data)
-    if (response) {
+    if (response.status === 200) {
+      Cookies.set('token', response.data.token, { expires: 7, secure: true })
       navigate('/')
     } else {
       toast({
@@ -44,15 +46,11 @@ export default function Login() {
         <Flex className="fieldsFlex">
           <div>
             <h2>E-mail</h2>
-            <Input placeholder="E-mail" onChange={handleEmailChange}></Input>
+            <Input onChange={handleEmailChange}></Input>
           </div>
           <div>
             <h2>Password</h2>
-            <Input
-              placeholder="Password"
-              type="password"
-              onChange={handlePasswordChange}
-            ></Input>
+            <Input type="password" onChange={handlePasswordChange}></Input>
           </div>
           <h2>Esqueceu sua senha?</h2>
         </Flex>
