@@ -15,3 +15,8 @@ code {
 #root {
   height: 100vh;
 }
+
+input {
+  border-color: gray !important;
+  margin-top: 1vh;
+}

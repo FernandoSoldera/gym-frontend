@@ -1,6 +1,6 @@
 import { Avatar, Image, Tooltip } from '@chakra-ui/react'
 import React from 'react'
-import '../../styles/Header.scss'
+import './Header.scss'
 import { useNavigate } from 'react-router-dom'
 import Cookies from 'js-cookie'
 import { jwtDecode } from 'jwt-decode'
