@@ -11,39 +11,45 @@ import SocialMedia from './pages/SocialMedia'
 import WorkoutLogs from './pages/WorkoutLogs'
 import Students from './pages/Students'
 import Profile from './pages/Profile'
+import ProtectedRoutes from './components/protectedRouter/ProtectedRoutes'
 
 const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home />,
-  },
   {
     path: '/login',
     element: <Login />,
   },
   {
-    path: '/evaluations',
-    element: <Evaluations />,
-  },
-  {
-    path: '/class',
-    element: <Class />,
-  },
-  {
-    path: '/social-media',
-    element: <SocialMedia />,
-  },
-  {
-    path: '/workout-logs',
-    element: <WorkoutLogs />,
-  },
-  {
-    path: '/students',
-    element: <Students />,
-  },
-  {
-    path: '/profile',
-    element: <Profile />,
+    element: <ProtectedRoutes />,
+    children: [
+      {
+        path: '/',
+        element: <Home />,
+      },
+      {
+        path: '/evaluations',
+        element: <Evaluations />,
+      },
+      {
+        path: '/class',
+        element: <Class />,
+      },
+      {
+        path: '/social-media',
+        element: <SocialMedia />,
+      },
+      {
+        path: '/workout-logs',
+        element: <WorkoutLogs />,
+      },
+      {
+        path: '/students',
+        element: <Students />,
+      },
+      {
+        path: '/profile',
+        element: <Profile />,
+      },
+    ],
   },
 ])
 
