@@ -16,7 +16,7 @@ code {
   height: 100vh;
 }
 
-input {
+input, select {
   border-color: gray !important;
   margin-top: 1vh;
 }

@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, ChangeEvent } from 'react'
 import '../styles/Profile.scss'
 import Header from '../components/header/Header'
-import { Avatar, Button, Input } from '@chakra-ui/react'
+import { Avatar, Button, Input, Select } from '@chakra-ui/react'
 import UserService from '../services/UserService'
 import Cookies from 'js-cookie'
 import { jwtDecode } from 'jwt-decode'
@@ -9,6 +9,7 @@ import User from '../types/IUser'
 
 export default function Profile() {
   const [user, setUser] = React.useState<User>()
+  const [newUser, setNewUser] = React.useState<User>()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,6 +30,14 @@ export default function Profile() {
     userId: string
   }
 
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value, name } = e.target
+    setNewUser({
+      ...newUser,
+      [name]: value,
+    })
+  }
+
   return (
     <div>
       <Header></Header>
@@ -36,21 +45,32 @@ export default function Profile() {
       <div className="form">
         <Avatar size="2xl"></Avatar>
         <div className="formRow">
-          <div>
+          <div className="formCell">
             <h2>Name</h2>
-            <Input value={user?.name}></Input>
+            <Input
+              value={user?.name}
+              name="name"
+              onChange={handleChange}
+            ></Input>
           </div>
-          <div>
+          <div className="formCell">
             <h2>E-mail</h2>
             <Input value={user?.email}></Input>
           </div>
         </div>
         <div className="formRow">
-          <div>
+          <div className="formCell">
             <h2>Gender</h2>
-            <Input value={user?.gender}></Input>
+            <Select>
+              <option value="male" selected={user?.gender === 'male'}>
+                Male
+              </option>
+              <option value="female" selected={user?.gender === 'female'}>
+                Female
+              </option>
+            </Select>
           </div>
-          <div>
+          <div className="formCell">
             <h2>Birthday</h2>
             <Input value={user?.birthday} type="date"></Input>
           </div>
