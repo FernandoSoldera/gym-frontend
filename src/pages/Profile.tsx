@@ -47,7 +47,7 @@ export default function Profile() {
       })
   }
 
-  const saveUser = () => {
+  const updateUser = () => {
     if (user != undefined) {
       UserService.updateUser(user)
     }
@@ -103,7 +103,7 @@ export default function Profile() {
           colorScheme="teal"
           className="saveButton"
           size="lg"
-          onClick={saveUser}
+          onClick={updateUser}
         >
           Salvar
         </Button>

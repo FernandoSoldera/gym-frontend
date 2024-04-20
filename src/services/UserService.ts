@@ -24,7 +24,7 @@ const getUserById = async (id: number): Promise<User> => {
 
 const updateUser = async (user: User): Promise<User> => {
   try {
-    const response = await httpClient.post('/user/', user)
+    const response = await httpClient.put('/user/', user)
     return response.data
   } catch (error) {
     console.log(error)
