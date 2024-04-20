@@ -22,9 +22,20 @@ const getUserById = async (id: number): Promise<User> => {
   }
 }
 
+const updateUser = async (user: User): Promise<User> => {
+  try {
+    const response = await httpClient.post('/user/', user)
+    return response.data
+  } catch (error) {
+    console.log(error)
+    throw error
+  }
+}
+
 const UserService = {
   login,
   getUserById,
+  updateUser,
 }
 
 export default UserService

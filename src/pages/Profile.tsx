@@ -48,7 +48,9 @@ export default function Profile() {
   }
 
   const saveUser = () => {
-    console.log(user)
+    if (user != undefined) {
+      UserService.updateUser(user)
+    }
   }
 
   return (
